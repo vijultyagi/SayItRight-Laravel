@@ -30,4 +30,9 @@ Route::get('/services', function () {
     return view('services');
 });
 
+Route::get('/chat', function () {
+    return view('chat');
+});
+
+
 Route::get('/contact-us', [ContactController::class, 'index']);

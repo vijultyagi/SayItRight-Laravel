@@ -21,46 +21,12 @@
             <button type="submit" class="btn btn-primary btn-block btn-large" name="contactSubmit" id="contactSubmit">Submit</button>
             </form>
     </div>
+    <div class="chat-icon">
+         <a href="../chat/"><img src="../images/chat.png" alt="Brand Logo" style="float: right; position: absolute; right: 30px; bottom: 30px;"></a>
+    </div>
 </body>
 
-<?php
-include "../DB/DbConnection.php";
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-require 'vendor/autoload.php';
-// SendQuery($conn);
-if(array_key_exists('contactSubmit', $_POST)) {
-    SendQuery($conn);
-}
-
-function SendQuery($conn)
-{
-    $first =  $_POST['first'];
-    $last = $_POST['last'];
-    $phone =  $_POST['phone'];
-    $email = $_POST['email'];
-    $query = $_POST['query'];
-    $mail = new PHPMailer(true);
-    $mail->IsSMTP();
-    $mail->SMTPDebug = 0;                   
-    $mail->isSMTP();                        
-    $mail->Host       = 'smtp.gmail.com';   
-    $mail->SMTPAuth   = true;               
-    $mail->Username   = 'concierge.user.4321@gmail.com';
-    $mail->Password   = 'ypeaxecfjbxrdkok';         
-    $mail->SMTPSecure = 'tls';              
-    $mail->Port       = 587;                
-    $mail->setFrom('concierge.user.4321@gmail.com', 'SayItRight');
-    $mail->addAddress($email);           
-    $mail->isHTML(true);                                  
-    $mail->Subject = 'SayItRight Query Acknowledgement';
-    $mail->Body    = 'We have received your query and we will reach out to you as soon as possible!';
-    $mail->AltBody = 'We have received your query and we will reach out to you as soon as possible!';
-    $mail->send();
-}
-?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="../js/index.js"></script>
