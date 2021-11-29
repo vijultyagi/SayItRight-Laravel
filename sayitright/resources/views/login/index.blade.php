@@ -11,7 +11,9 @@
     <div id="nav-placeholder"></div>
     <div class="login">
         
-        <form id="loginform" method="post" action="@Url.Action("index", "LoginController")">
+        <form id="loginform" method="get" 
+        {{-- action="{{ action('LoginController@login') }}" --}}
+        >
             <h1>Login</h1>
             <input type="text" placeholder="Username" name="uname_l" required="required" id="uname_l" maxlength="15"/>
             <input type="password" placeholder="Password" name="pass_l" required="required" id="pass_l" maxlength="20"/>
@@ -20,7 +22,9 @@
                 <button id="btnregister" class="link">Don't have an account with us? Register</button>
             </div>
         </form>
-        <form id="registerform" method="post" action="" style="display:none;">
+        <form id="registerform" method="post" 
+        action="/login" 
+        style="display:none;">
             <h1>Register</h1>
             <input type="text" placeholder="Name" required="required" name="name" id="name" maxlength="15"/>
             <select name="userType" id="userType" required="required">
@@ -44,71 +48,7 @@
     </div>
 </body>
 
-<?php
-include "../DB/DbConnection.php";
 
-if(array_key_exists('btnsignin', $_POST)) {
-    AuthenticateUser($conn);
-}
-else if(array_key_exists('btnreg', $_POST)) {
-    RegisterUser($conn);
-}
-
-function AuthenticateUser($conn)
-{
-    $uname_l =  $_POST['uname_l'];
-    $pass_l = $_POST['pass_l'];
-
-    $sql_query = "Select UserType from Users where UserName='".$uname_l."' and Password='".$pass_l."'";
-    $result = mysqli_query($conn,$sql_query);
-    $row = mysqli_fetch_array($result);
-
-    $type = $row['UserType'];
-
-    if($type){
-        //$_SESSION['uname'] = $uname_l;
-        switch ($type) {
-            case 1:
-                header('Location: ../student/index.php');
-                break;
-            case 2:
-                header('Location: ../professor/index.php');
-                break;
-            case 3:
-                header('Location: ../advisor/index.php');
-                break;
-            case 4:
-                header('Location: ../super-admin/index.php');
-                break;
-        }
-    }
-    else{
-        echo '<script>alert("Invalid username/password")</script>';
-    }
-}
-
-function RegisterUser($conn)
-{
-    $uname_r =  $_POST['uname_r'];
-    $pass_r = $_POST['pass_r'];
-    $name =  $_POST['name'];
-    $repass = $_POST['repass'];
-    $phone =  (int)$_POST['phone'];
-    $email = $_POST['email'];
-    $address =  $_POST['address'];
-    $userType = (int)$_POST['userType'];
-    
-    $sql_query = "Insert into Users(Name, PhoneNo, Email, Address, UserName, Password, UserType) Values('$name', $phone, '$email', '$address', '$uname_r', '$pass_r', $userType)";
-    $result = mysqli_query($conn,$sql_query);
-    if($result)
-    {
-        echo '<script>alert("Registered successfully")</script>';
-    }
-    else{
-        echo '<script>alert("Something went wrong")</script>';
-    }
-}
-?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="../js/index.js"></script>

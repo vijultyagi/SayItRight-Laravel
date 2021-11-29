@@ -4,22 +4,41 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class LoginController extends Controller
 {
-    public function index(){
-        // if(array_key_exists('btnsignin', $_POST)) {
-        //     AuthenticateUser();
-        // }
-        // else if(array_key_exists('btnreg', $_POST)) {
-        //     RegisterUser();
-        // }
-        //$uname_l =  $_POST['uname_l'];
+    public function index()
+    {
 
-        //$input = Input::only('uname_l','pass_l','password');
-        // $users = DB::select("Select * from Users");
-        //dd($uname_l);
+        // if ($request->has('btnsignin')) {
+        //     //handle form1
+        //     return 'login';
+
+        // }
+        
+        // if ($request->has('btnreg')) {
+        //     return 'register';
+        //     //handle form2
+        // }
+
+        // $users = User::all();
+        // dd($users);
         return view('login.index');
+    }
+
+    public function get()
+    {
+        return 'login';
+
+    }
+
+    public function post(Request $request)
+    {
+        $user = new User;
+        $user->Name = $request->input('name');
+        return 'login';
+
     }
 
     // function AuthenticateUser()
