@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<link href="../resources/css/app.css" rel="stylesheet">
-
-{{-- @push('styles')
-    <link rel="stylesheet" href="../resources/css/app.css">
-@endpush --}}
-<head>
-    <title>Say it Right</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>Say it Right</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{{ url(css/app.css) }}" >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
 </head>
 
@@ -43,10 +39,10 @@
                 <span>T</span>
             </h1>
         </div>
-        <div style="float:left; width:50%"><img class="home-img" src="../resources/images/Home/sms.png"></div>
+        <div style="float:left; width:50%"><img class="home-img" src="../images/Home/sms.png"></div>
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../resources/js/index.js"></script>
+<script src="../js/index.js"></script>
 
 </html>
