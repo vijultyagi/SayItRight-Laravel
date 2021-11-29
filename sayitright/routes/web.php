@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +36,6 @@ Route::get('/chat', function () {
     return view('chat');
 });
 
-
 Route::get('/contact-us', [ContactController::class, 'index']);
+
+Route::get('/login', [LoginController::class, 'index']);
