@@ -44,8 +44,9 @@ class LoginController extends Controller
                                 break;
                         }
         }
-        else{
-            dd('error');
+        else
+        {
+            return redirect('/login');
         }
     }
 }

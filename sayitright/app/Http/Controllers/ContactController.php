@@ -24,12 +24,7 @@ class ContactController extends Controller
         $email = $request->input('email');
         $query = $request->input('query');
         Mail::to($email)->send(new Subscribe($email));
-        return new JsonResponse(
-            [
-                'success' => true, 
-                'message' => "Thank you for subscribing to our email, please check your inbox"
-            ], 
-            200
-        );
+
+        return redirect('/contact-us');
     }
 }
