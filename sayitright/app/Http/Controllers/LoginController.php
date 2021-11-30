@@ -13,58 +13,39 @@ class LoginController extends Controller
         return view('login.index');
     }
 
-    public function create()
-    {
-        return view('login.register');
-    }
+    // public function create()
+    // {
+    //     return view('login.register');
+    // }
 
     public function store(Request $request)
     {
-        $user = User::create([
-            'Name' => $request->input('name'),
-            'PhoneNo' => $request->input('phone'),
-            'Email' => $request->input('email'),
-            'Address' => $request->input('address'),
-            //'NameRecordingPath' => $request->input('NameRecordingPath'),
-            'UserName' => $request->input('uname_r'),
-            'Password' => $request->input('pass_r'),
-            'UserType' => $request->input('userType')
-        ]);
+        $username = $request->input('uname_l');
+        $password = $request->input('pass_l');
 
-        //$user->save();
-        return redirect('/login');
+        $user = User::where([['UserName', '=', $username],['Password', '=', $password]])->get();
+
+        if(count($user)>0)
+        {
+            $userType = $user[0]['UserType'];
+
+            switch($userType) {
+                            case 1:
+                                return redirect('/student/index');
+                                break;
+                            case 2:
+                                return redirect('/professor/index');
+                                break;
+                            case 3:
+                                return redirect('/advisor/index');
+                                break;
+                            case 4:
+                                return redirect('/admin/index');
+                                break;
+                        }
+        }
+        else{
+            dd('error');
+        }
     }
-
-    // function AuthenticateUser()
-    // {
-    //     $pass_l = $_POST['pass_l'];
-
-        
-    //     $sql_query = "Select UserType from Users where UserName='".$uname_l."' and Password='".$pass_l."'";
-    //     $result = mysqli_query($conn,$sql_query);
-    //     $row = mysqli_fetch_array($result);
-
-    //     $type = $row['UserType'];
-
-    //     if($type){
-    //         //$_SESSION['uname'] = $uname_l;
-    //         switch ($type) {
-    //             case 1:
-    //                 header('Location: ../student/index.php');
-    //                 break;
-    //             case 2:
-    //                 header('Location: ../professor/index.php');
-    //                 break;
-    //             case 3:
-    //                 header('Location: ../advisor/index.php');
-    //                 break;
-    //             case 4:
-    //                 header('Location: ../super-admin/index.php');
-    //                 break;
-    //         }
-    //     }
-    //     else{
-    //         echo '<script>alert("Invalid username/password")</script>';
-    //     }
-    // }
 }

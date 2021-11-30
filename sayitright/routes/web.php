@@ -48,7 +48,7 @@ Route::get('/student', [StudentsController::class, 'index']);
 
 route::resource('/login', LoginController::class);
 
-//route::resource('/register', LoginController::class);
+route::resource('/register', RegisterController::class);
 
 
 

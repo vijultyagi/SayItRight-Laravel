@@ -11,10 +11,8 @@
     <div id="nav-placeholder"></div>
     <div class="login">
         
-        <form id="registerform" method="post" 
-        action='/login'>
-        @csrf
-        {{-- action="{{ config('app.url')}}/login"> --}}
+        <form id="registerform" method="post" action='/register'>
+            @csrf
 
             <h1>Register</h1>
             <input type="text" placeholder="Name" required="required" name="name" id="name" maxlength="15"/>
