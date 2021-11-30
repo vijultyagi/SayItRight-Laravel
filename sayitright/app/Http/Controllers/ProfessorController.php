@@ -18,11 +18,6 @@ class ProfessorController extends Controller
         ->select('Name', 'Description', 'Days', 'Timings')
         ->get();
 
-        // $users = DB::table('Users')
-        // ->select('Name', 'PhoneNo', 'Email', 'Address')
-        // //->where('UserType', '=', 1)
-        // ->get();
-
         return view('professor.index', ['assignments' => $assignments], ['courses' => $courses]);
     }
 

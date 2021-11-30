@@ -32,11 +32,39 @@
             <div class="table-responsive table-bordered table-hover customdatatable">
 
                 <div id="professortable">
-                    <table class="display customdatagrid" id="tblprof" style="width: 100%; height: auto;">
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Phone No.</td>
+                            <td>Email</td>
+                            <td>Address</td>
+                        </tr>
+                        @foreach ($professors as $professor)
+                            <tr>
+                                <td>{{ $professor->Name }}</td>
+                                <td>{{ $professor->PhoneNo }}</td>
+                                <td>{{ $professor->Email }}</td>
+                                <td>{{ $professor->Address }}</td>
+                            </tr>        
+                        @endforeach
                     </table>
                 </div>
                 <div id="studenttable">
-                    <table class="display customdatagrid" id="tblAdvisor" style="width: 100%; height: auto;">
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Phone No.</td>
+                            <td>Email</td>
+                            <td>Address</td>
+                        </tr>
+                        @foreach ($advisors as $advisor)
+                            <tr>
+                                <td>{{ $advisor->Name }}</td>
+                                <td>{{ $advisor->PhoneNo }}</td>
+                                <td>{{ $advisor->Email }}</td>
+                                <td>{{ $advisor->Address }}</td>
+                            </tr>        
+                        @endforeach
                     </table>
                 </div>
                 <div id="reports">
