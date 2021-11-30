@@ -31,16 +31,16 @@ class LoginController extends Controller
 
             switch($userType) {
                             case 1:
-                                return redirect('/student/index');
+                                return redirect('/student');
                                 break;
                             case 2:
-                                return redirect('/professor/index');
+                                return redirect('/professor');
                                 break;
                             case 3:
-                                return redirect('/advisor/index');
+                                return redirect('/advisor');
                                 break;
                             case 4:
-                                return redirect('/admin/index');
+                                return redirect('/admin');
                                 break;
                         }
         }
