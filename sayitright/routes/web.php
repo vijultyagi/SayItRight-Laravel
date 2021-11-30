@@ -38,7 +38,15 @@ Route::get('/chat', function () {
 
 Route::get('/contact-us', [ContactController::class, 'index']);
 
-Route::get('/login', [LoginController::class, 'index']);
+// Route::get('/login', [LoginController::class, 'index']);
 
-Route::get('/login/create', [LoginController::class, 'create']);
+// Route::get('/login/create', [LoginController::class, 'create']);
+
+// Route::post('/login/create', [LoginController::class, 'store']);
+
+route::resource('/login', LoginController::class);
+
+//route::resource('/register', LoginController::class);
+
+
 

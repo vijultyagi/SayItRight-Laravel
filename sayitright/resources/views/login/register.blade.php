@@ -12,7 +12,10 @@
     <div class="login">
         
         <form id="registerform" method="post" 
-        {{-- action="/login"  --}}>
+        action='/login'>
+        @csrf
+        {{-- action="{{ config('app.url')}}/login"> --}}
+
             <h1>Register</h1>
             <input type="text" placeholder="Name" required="required" name="name" id="name" maxlength="15"/>
             <select name="userType" id="userType" required="required">
