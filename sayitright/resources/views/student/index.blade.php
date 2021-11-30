@@ -29,7 +29,23 @@
         <div style="width: 80%; float:right; padding:2%; padding-top: 5%;">
             <div class="table-responsive table-bordered table-hover customdatatable">
                 <div id="classtable">
-                    <table class="display customdatagrid" id="tblClasses" style="width: 100%; height: auto;">
+                    {{-- <table class="display customdatagrid" id="tblClasses" style="width: 100%; height: auto;">
+                    </table> --}}
+                    <table>
+                        <tr>
+                            <td>Course Name</td>
+                            <td>Description</td>
+                            <td>Days</td>
+                            <td>Timings</td>
+                        </tr>
+                        @foreach ($studentCourses as $studentCourse)
+                            <tr>
+                                <td>{{ $studentCourse->name }}</td>
+                                <td>{{ $studentCourse->desc }}</td>
+                                <td>{{ $studentCourse->Days }}</td>
+                                <td>{{ $studentCourse->Timings }}</td>
+                            </tr>        
+                        @endforeach
                     </table>
                 </div>
                 <div id="rectable">

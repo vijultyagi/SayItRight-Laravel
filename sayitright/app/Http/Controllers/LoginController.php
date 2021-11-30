@@ -22,8 +22,13 @@ class LoginController extends Controller
 
         if(count($user)>0)
         {
-            $userType = $user[0]['UserType'];
+            $studentId = $user[0]['Id'];
 
+            //Login session
+            //$request->session()->put('studentId',$studentId);
+
+            $userType = $user[0]['UserType'];
+            
             switch($userType) {
                             case 1:
                                 return redirect('/student');
