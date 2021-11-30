@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\ProfessorController;
+use App\Http\Controllers\AdvisorController;
+use App\Http\Controllers\AdminController;
+
 
 
 /*
@@ -38,7 +42,6 @@ Route::get('/chat', function () {
     return view('chat');
 });
 
-Route::get('/student', [StudentsController::class, 'index']);
 
 Route::resource('/login', LoginController::class);
 
@@ -46,5 +49,10 @@ Route::resource('/register', RegisterController::class);
 
 Route::resource('/contact-us', ContactController::class);
 
+Route::resource('/student', StudentsController::class);
 
+Route::resource('/professor', ProfessorController::class);
 
+Route::resource('/advisor', AdvisorController::class);
+
+Route::resource('/admin', AdminController::class);
