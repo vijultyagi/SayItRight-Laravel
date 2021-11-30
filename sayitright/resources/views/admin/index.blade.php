@@ -8,7 +8,30 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
-
+    <style>
+                    table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+th,
+td {
+  padding: 10px 15px;
+}
+thead {
+  background: #395870;
+  color: #fff;
+}
+tbody tr:nth-child(even) {
+  background: #f0f0f2;
+}
+td {
+  border-bottom: 1px solid #cecfd5;
+  border-right: 1px solid #cecfd5;
+}
+td:first-child {
+  border-left: 1px solid #cecfd5;
+}
+        </style>
 </head>
 
 <body>
@@ -32,13 +55,16 @@
             <div class="table-responsive table-bordered table-hover customdatatable">
 
                 <div id="professortable">
-                    <table>
+                    <table class="styled-table" style="width: 100%">
+                    <thead>
                         <tr>
-                            <td>Name</td>
-                            <td>Phone No.</td>
-                            <td>Email</td>
-                            <td>Address</td>
-                        </tr>
+                                        <th> Name</th>
+                                        <th>PhoneNo</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                    </tr>
+                        </thead>
+                        
                         @foreach ($professors as $professor)
                             <tr>
                                 <td>{{ $professor->Name }}</td>
@@ -50,13 +76,16 @@
                     </table>
                 </div>
                 <div id="studenttable">
-                    <table>
-                        <tr>
-                            <td>Name</td>
-                            <td>Phone No.</td>
-                            <td>Email</td>
-                            <td>Address</td>
-                        </tr>
+                    <table class="styled-table" style="width: 100%">
+                    <thead>
+                    <tr>
+                                        <th> Name</th>
+                                        <th>PhoneNo</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                    </tr>
+                        </thead>
+                        
                         @foreach ($advisors as $advisor)
                             <tr>
                                 <td>{{ $advisor->Name }}</td>

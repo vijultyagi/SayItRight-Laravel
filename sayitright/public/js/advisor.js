@@ -93,6 +93,7 @@ $(document).ready(function () {
     document.getElementById("rectable").style.display = 'none';
     document.getElementById("assgtable").style.display = 'none';
     document.getElementById("enrollclass").style.display = 'none';
+    document.getElementById("professortable").style.display = 'none';
 });
 
 
@@ -107,8 +108,8 @@ $('#mngclass').click(function () {
     //BindClasses();
 });
 $('#mngProf').click(function () {
-    document.getElementById("classtable").style.display = 'none';
-    document.getElementById("professortable").style.display = 'block';
+    document.getElementById("classtable").style.display = 'block';
+    document.getElementById("professortable").style.display = 'none';
     document.getElementById("rectable").style.display = 'none';
     document.getElementById("assgtable").style.display = 'none';
     document.getElementById("enrollclass").style.display = 'none';
@@ -169,9 +170,9 @@ $("#btnassignment").on("click", function (e) {
 
 function ShowAssignmentDiv(){
     document.getElementById("classtable").style.display = 'none';
-    document.getElementById("professortable").style.display = 'none';
+    document.getElementById("professortable").style.display = 'block';
     document.getElementById("rectable").style.display = 'none';
-    document.getElementById("assgtable").style.display = 'block';
+    document.getElementById("assgtable").style.display = 'none';
     document.getElementById("enrollclass").style.display = 'none';
     document.getElementById("studenttable").style.display = 'none';
     //BindAssignments();
