@@ -8,6 +8,30 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <style>
+                    table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+th,
+td {
+  padding: 10px 15px;
+}
+thead {
+  background: #395870;
+  color: #fff;
+}
+tbody tr:nth-child(even) {
+  background: #f0f0f2;
+}
+td {
+  border-bottom: 1px solid #cecfd5;
+  border-right: 1px solid #cecfd5;
+}
+td:first-child {
+  border-left: 1px solid #cecfd5;
+}
+        </style>
 </head>
 
 <body>
@@ -29,13 +53,16 @@
                 <div id="classtable">
                     {{-- <table class="display customdatagrid" id="tblClasses" style="width: 100%; height: auto;">
                     </table> --}}
-                    <table>
+                    <table class="styled-table" style="width: 100%">
+                        <thead>
                         <tr>
-                            <td>Course Name</td>
-                            <td>Description</td>
-                            <td>Days</td>
-                            <td>Timings</td>
-                        </tr>
+                                        <th>Course Name</th>
+                                        <th>Description</th>
+                                        <th>Days</th>
+                                        <th>Timings</th>
+                                    </tr>
+                        </thead>
+                        
                         @foreach ($studentCourses as $studentCourse)
                             <tr>
                                 <td>{{ $studentCourse->name }}</td>
