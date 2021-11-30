@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+
 
 
 /*
@@ -46,7 +48,7 @@ Route::get('/contact-us', [ContactController::class, 'index']);
 
 route::resource('/login', LoginController::class);
 
-//route::resource('/register', LoginController::class);
+route::resource('/register', RegisterController::class);
 
 
 
