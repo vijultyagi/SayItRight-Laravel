@@ -64,9 +64,9 @@ var adata = [
     }
 ];
 $(document).ready(function () {
-    BindClasses();
-    document.getElementById("studenttable").style.display = 'none';
-    document.getElementById("rectable").style.display = 'none';
+    //BindClasses();
+    //document.getElementById("studenttable").style.display = 'none';
+    // document.getElementById("rectable").style.display = 'none';
     document.getElementById("assgtable").style.display = 'none';
     document.getElementById("enrollclass").style.display = 'none';
 });

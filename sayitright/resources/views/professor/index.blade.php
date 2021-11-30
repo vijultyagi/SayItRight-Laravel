@@ -8,6 +8,30 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <style>
+                    table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+th,
+td {
+  padding: 10px 15px;
+}
+thead {
+  background: #395870;
+  color: #fff;
+}
+tbody tr:nth-child(even) {
+  background: #f0f0f2;
+}
+td {
+  border-bottom: 1px solid #cecfd5;
+  border-right: 1px solid #cecfd5;
+}
+td:first-child {
+  border-left: 1px solid #cecfd5;
+}
+        </style>
 </head>
 
 <body>
@@ -30,13 +54,15 @@
         <div style="width: 80%; float:right; padding:2%; padding-top: 5%;">
             <div class="table-responsive table-bordered table-hover customdatatable">
                 <div id="classtable">
-                    <table>
+                    <table class="styled-table" style="width: 100%">
+                    <thead>
                         <tr>
-                            <td>Course Name</td>
-                            <td>Description</td>
-                            <td>Days</td>
-                            <td>Timings</td>
-                        </tr>
+                                        <th>Course Name</th>
+                                        <th>Description</th>
+                                        <th>Days</th>
+                                        <th>Timings</th>
+                                    </tr>
+                        </thead>
                         @foreach ($courses as $course)
                             <tr>
                                 <td>{{ $course->Name }}</td>
@@ -48,13 +74,15 @@
                     </table>
                 </div>
                 {{-- <div id="studenttable">
-                    <table>
+                    <table class="styled-table" style="width: 100%">
+                    <thead>
                         <tr>
-                            <td>Name</td>
-                            <td>Phone No.</td>
-                            <td>Email</td>
-                            <td>Address</td>
-                        </tr>
+                                        <th>Name</th>
+                                        <th>PhoneNo</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                    </tr>
+                        </thead>
                         @foreach ($users as $user)
                             <tr>
                                 <td>{{ $user->Name }}</td>
@@ -70,13 +98,15 @@
                     </table>
                 </div>
                 <div id="assgtable">
-                    <table>
+                    <table class="styled-table" style="width: 100%">
+                    <thead>
                         <tr>
-                            <td>Assignment Topic</td>
-                            <td>Description</td>
-                            <td>Due Date</td>
-                            <td>Points</td>
-                        </tr>
+                                        <th>Topic</th>
+                                        <th>Description</th>
+                                        <th>DueDate</th>
+                                        <th>Points</th>
+                                    </tr>
+                        </thead>
                         @foreach ($assignments as $assignment)
                             <tr>
                                 <td>{{ $assignment->Topic }}</td>
