@@ -30,16 +30,43 @@
         <div style="width: 80%; float:right; padding:2%; padding-top: 5%;">
             <div class="table-responsive table-bordered table-hover customdatatable">
                 <div id="classtable">
-                    <table class="display customdatagrid" id="tblClasses" style="width: 100%; height: auto;">
+                    <table>
+                        <tr>
+                            <td>Course Name</td>
+                            <td>Description</td>
+                            <td>Days</td>
+                            <td>Timings</td>
+                        </tr>
+                        @foreach ($courses as $course)
+                            <tr>
+                                <td>{{ $course->Name }}</td>
+                                <td>{{ $course->Description }}</td>
+                                <td>{{ $course->Days }}</td>
+                                <td>{{ $course->Timings }}</td>
+                            </tr>        
+                        @endforeach
                     </table>
                 </div>
                 <div id="professortable">
-                    <table class="display customdatagrid" id="tblprof" style="width: 100%; height: auto;">
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Phone No.</td>
+                            <td>Email</td>
+                            <td>Address</td>
+                        </tr>
+                        @foreach ($professors as $professor)
+                            <tr>
+                                <td>{{ $professor->Name }}</td>
+                                <td>{{ $professor->PhoneNo }}</td>
+                                <td>{{ $professor->Email }}</td>
+                                <td>{{ $professor->Address }}</td>
+                            </tr>        
+                        @endforeach
                     </table>
                 </div>
                 <div id="studenttable">
-                    <table class="display customdatagrid" id="tblStudent" style="width: 100%; height: auto;">
-                    </table>
+
                 </div>
                 <div id="rectable">
                     <table class="display customdatagrid" id="tblRecordings" style="width: 100%; height: auto">
