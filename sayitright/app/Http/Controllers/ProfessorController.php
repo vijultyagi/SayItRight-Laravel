@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 use App\Models\Assignment;
 
 use Illuminate\Http\Request;
@@ -9,7 +10,20 @@ class ProfessorController extends Controller
 {
     public function index()
     {
-        return view('professor.index');
+        $assignments = DB::table('Assignment')
+            ->select('Topic', 'Description', 'DueDate', 'Points')
+            ->get();
+        
+        $courses = DB::table('Courses')
+        ->select('Name', 'Description', 'Days', 'Timings')
+        ->get();
+
+        // $users = DB::table('Users')
+        // ->select('Name', 'PhoneNo', 'Email', 'Address')
+        // //->where('UserType', '=', 1)
+        // ->get();
+
+        return view('professor.index', ['assignments' => $assignments], ['courses' => $courses]);
     }
 
     public function store(Request $request)

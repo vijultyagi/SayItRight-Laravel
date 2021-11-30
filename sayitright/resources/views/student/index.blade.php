@@ -18,8 +18,6 @@
             <ul class="side-nav">
                 <li id="mngclass"><a href="#"><i class="far fa-calendar-alt" style="padding-right: 8%;"></i>Manage
                         Courses</a></li>
-                <li id="mngrecord"><a href="#"><i class="fas fa-video" style="padding-right: 7%;"></i>Audio
-                        Recordings</a></li>
                 <li id="mngassignment"><a href="#"><i class="fas fa-laptop-code"
                             style="padding-right: 6%;"></i>Assignments</a></li>
                 <li id="addclass"><a href="#"><i class="fas fa-plus" style="padding-right: 6%;"></i>Enroll Course</a>
@@ -48,12 +46,22 @@
                         @endforeach
                     </table>
                 </div>
-                <div id="rectable">
-                    <table class="display customdatagrid" id="tblRecordings" style="width: 100%; height: auto">
-                    </table>
-                </div>
                 <div id="assgtable">
-                    <table class="display customdatagrid" id="tblAssignments" style="width: 100%; height: auto;">
+                    <table>
+                        <tr>
+                            <td>Assignment Topic</td>
+                            <td>Description</td>
+                            <td>Due Date</td>
+                            <td>Points</td>
+                        </tr>
+                        @foreach ($assignments as $assignment)
+                            <tr>
+                                <td>{{ $assignment->Topic }}</td>
+                                <td>{{ $assignment->Description }}</td>
+                                <td>{{ $assignment->DueDate }}</td>
+                                <td>{{ $assignment->Points }}</td>
+                            </tr>        
+                        @endforeach
                     </table>
                 </div>
                 <div id="enrollclass" style="height: 70%;">

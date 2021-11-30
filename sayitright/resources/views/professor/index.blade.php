@@ -18,10 +18,8 @@
             <ul class="side-nav">
                 <li id="mngclass"><a href="#"><i class="far fa-calendar-alt" style="padding-right: 8%;"></i>Manage
                         Courses</a></li>
-                <li id="mngstud"><a href="#"><i class="fas fa-users" style="padding-right: 7%;"></i>Manage
-                        Students</a></li>
-                <!-- <li id="mngrecord"><a href="#"><i class="fas fa-laptop-code" style="padding-right: 6%;"></i>Manage
-                        Recordings</a></li> -->
+                {{-- <li id="mngstud"><a href="#"><i class="fas fa-users" style="padding-right: 7%;"></i>Manage
+                        Students</a></li> --}}
                 <li id="mngassignment"><a href="#"><i class="fas fa-laptop-code" style="padding-right: 6%;"></i>Manage
                         Assignments</a></li>
                 <li id="addAssg"><a href="#"><i class="fas fa-plus" style="padding-right: 6%;"></i>Add Assignments</a>
@@ -32,19 +30,61 @@
         <div style="width: 80%; float:right; padding:2%; padding-top: 5%;">
             <div class="table-responsive table-bordered table-hover customdatatable">
                 <div id="classtable">
-                    <table class="display customdatagrid" id="tblClasses" style="width: 100%; height: auto;">
+                    <table>
+                        <tr>
+                            <td>Course Name</td>
+                            <td>Description</td>
+                            <td>Days</td>
+                            <td>Timings</td>
+                        </tr>
+                        @foreach ($courses as $course)
+                            <tr>
+                                <td>{{ $course->Name }}</td>
+                                <td>{{ $course->Description }}</td>
+                                <td>{{ $course->Days }}</td>
+                                <td>{{ $course->Timings }}</td>
+                            </tr>        
+                        @endforeach
                     </table>
                 </div>
-                <div id="studenttable">
-                    <table class="display customdatagrid" id="tblStudent" style="width: 100%; height: auto;">
+                {{-- <div id="studenttable">
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Phone No.</td>
+                            <td>Email</td>
+                            <td>Address</td>
+                        </tr>
+                        @foreach ($users as $user)
+                            <tr>
+                                <td>{{ $user->Name }}</td>
+                                <td>{{ $user->PhoneNo }}</td>
+                                <td>{{ $user->Email }}</td>
+                                <td>{{ $user->Address }}</td>
+                            </tr>        
+                        @endforeach
                     </table>
-                </div>
+                </div> --}}
                 <div id="rectable">
                     <table class="display customdatagrid" id="tblRecordings" style="width: 100%; height: auto">
                     </table>
                 </div>
                 <div id="assgtable">
-                    <table class="display customdatagrid" id="tblAssignments" style="width: 100%; height: auto;">
+                    <table>
+                        <tr>
+                            <td>Assignment Topic</td>
+                            <td>Description</td>
+                            <td>Due Date</td>
+                            <td>Points</td>
+                        </tr>
+                        @foreach ($assignments as $assignment)
+                            <tr>
+                                <td>{{ $assignment->Topic }}</td>
+                                <td>{{ $assignment->Description }}</td>
+                                <td>{{ $assignment->DueDate }}</td>
+                                <td>{{ $assignment->Points }}</td>
+                            </tr>        
+                        @endforeach
                     </table>
                 </div>
                 <div id="enrollclass" style="height: 70%;">
