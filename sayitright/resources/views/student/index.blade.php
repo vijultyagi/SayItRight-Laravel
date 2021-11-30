@@ -74,13 +74,15 @@ td:first-child {
                     </table>
                 </div>
                 <div id="assgtable">
-                    <table>
+                <table class="styled-table" style="width: 100%">
+                    <thead>
                         <tr>
-                            <td>Assignment Topic</td>
-                            <td>Description</td>
-                            <td>Due Date</td>
-                            <td>Points</td>
-                        </tr>
+                                        <th>Topic</th>
+                                        <th>Description</th>
+                                        <th>DueDate</th>
+                                        <th>Points</th>
+                                    </tr>
+                        </thead>
                         @foreach ($assignments as $assignment)
                             <tr>
                                 <td>{{ $assignment->Topic }}</td>
