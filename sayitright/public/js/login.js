@@ -1,18 +1,18 @@
-$("#btnregister").on("click", function (e) {
-  var loginform = document.getElementById("loginform");
-  var registerform = document.getElementById("registerform");
-  loginform.style.display = "none";
-  registerform.style.display = "block";
-  return false;
-});
+// $("#btnregister").on("click", function (e) {
+//   var loginform = document.getElementById("loginform");
+//   var registerform = document.getElementById("registerform");
+//   loginform.style.display = "none";
+//   registerform.style.display = "block";
+//   return false;
+// });
 
-$("#btnlogin").on("click", function (e) {
-  var loginform = document.getElementById("loginform");
-  var registerform = document.getElementById("registerform");
-  loginform.style.display = "block";
-  registerform.style.display = "none";
-  return false;
-});
+// $("#btnlogin").on("click", function (e) {
+//   var loginform = document.getElementById("loginform");
+//   var registerform = document.getElementById("registerform");
+//   loginform.style.display = "block";
+//   registerform.style.display = "none";
+//   return false;
+// });
 
 $("#btnsignin").on("click", function (e) {
   var UserName = $('#txtLUName').val().split('@');

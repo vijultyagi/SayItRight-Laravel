@@ -27,10 +27,9 @@ class LoginController extends Controller
         return view('login.index');
     }
 
-    public function get()
+    public function create()
     {
-        return 'login';
-
+        return view('login.register');
     }
 
     public function post(Request $request)

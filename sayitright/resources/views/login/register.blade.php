@@ -11,20 +11,8 @@
     <div id="nav-placeholder"></div>
     <div class="login">
         
-        <form id="loginform" method="get" 
-        {{-- action="{{ action('LoginController@login') }}" --}}
-        >
-            <h1>Login</h1>
-            <input type="text" placeholder="Username" name="uname_l" required="required" id="uname_l" maxlength="15"/>
-            <input type="password" placeholder="Password" name="pass_l" required="required" id="pass_l" maxlength="20"/>
-            <button class="btn btn-primary btn-block btn-large" name="btnsignin" id="btnsignin" type="submit">Sign in</button>
-            <div class="buttonHolder">
-                <a href="../login/create" id="btnregister" class="link">Don't have an account with us? Register</a>
-            </div>
-        </form>
         <form id="registerform" method="post" 
-        action="/login" 
-        style="display:none;">
+        {{-- action="/login"  --}}>
             <h1>Register</h1>
             <input type="text" placeholder="Name" required="required" name="name" id="name" maxlength="15"/>
             <select name="userType" id="userType" required="required">
@@ -42,7 +30,7 @@
             <input type="password" placeholder="Re-enter Password" required="required" name="repass" id="repass" maxlength="20"/>
             <button type="submit" class="btn btn-primary btn-block btn-large" name="btnreg" id="btnreg">Register</button>
             <div class="buttonHolder">
-                <button id="btnlogin" class="link">Already have an account? Login</button>
+                <a id="btnlogin" class="link">Already have an account? Login</a>
             </div>
         </form>
     </div>
