@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\RegisterController;
 
 
 /*
@@ -44,7 +45,6 @@ Route::resource('/login', LoginController::class);
 Route::resource('/register', RegisterController::class);
 
 Route::resource('/contact-us', ContactController::class);
-
 
 
 

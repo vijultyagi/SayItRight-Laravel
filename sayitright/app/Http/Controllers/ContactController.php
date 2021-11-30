@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\Subscribe;
+use App\Models\Subscriber;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -18,9 +23,13 @@ class ContactController extends Controller
         $phone = $request->input('phone');
         $email = $request->input('email');
         $query = $request->input('query');
-
-        //email code
-        dd($first);
-        //return redirect('/contact-us');
+        Mail::to($email)->send(new Subscribe($email));
+        return new JsonResponse(
+            [
+                'success' => true, 
+                'message' => "Thank you for subscribing to our email, please check your inbox"
+            ], 
+            200
+        );
     }
 }

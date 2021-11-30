@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Mail\Subscribe;
+use App\Models\Subscriber;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 
 class RegisterController extends Controller
@@ -25,7 +30,9 @@ class RegisterController extends Controller
             'Password' => $request->input('pass_r'),
             'UserType' => $request->input('userType')
         ]);
-
+        $email = $request->input('email');
+        Mail::to($email)->send(new Subscribe($email));
+        
         return redirect('/login');
     }
 }
