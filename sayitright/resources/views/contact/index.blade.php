@@ -12,7 +12,9 @@
 
     <div class="login">
         <h1>Contact Us</h1>
-            <form id="contactform" method="post" action="">
+            <form id="contactform" method="post" action="/contact-us">
+            @csrf
+
             <input type="text" id="fn" name="first" placeholder="First Name" required="required" maxlength="15"/>
             <input type="text" id="ln" name="last" placeholder="Last Name" required="required" maxlength="15"/>
             <input type="number" id="phone" name="phone" placeholder="Phone No." required="required"/>
@@ -25,8 +27,6 @@
          <a href="../chat/"><img src="../images/chat.png" alt="Brand Logo" style="float: right; position: absolute; right: 30px; bottom: 30px;"></a>
     </div>
 </body>
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="../js/index.js"></script>

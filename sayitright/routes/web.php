@@ -37,18 +37,14 @@ Route::get('/chat', function () {
     return view('chat');
 });
 
-Route::get('/contact-us', [ContactController::class, 'index']);
 Route::get('/student', [StudentsController::class, 'index']);
 
-// Route::get('/login', [LoginController::class, 'index']);
+Route::resource('/login', LoginController::class);
 
-// Route::get('/login/create', [LoginController::class, 'create']);
+Route::resource('/register', RegisterController::class);
 
-// Route::post('/login/create', [LoginController::class, 'store']);
+Route::resource('/contact-us', ContactController::class);
 
-route::resource('/login', LoginController::class);
-
-route::resource('/register', RegisterController::class);
 
 
 

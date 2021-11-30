@@ -13,11 +13,6 @@ class LoginController extends Controller
         return view('login.index');
     }
 
-    // public function create()
-    // {
-    //     return view('login.register');
-    // }
-
     public function store(Request $request)
     {
         $username = $request->input('uname_l');
