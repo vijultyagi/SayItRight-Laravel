@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\StudentsController;
 
 
 /*
@@ -37,6 +38,7 @@ Route::get('/chat', function () {
 });
 
 Route::get('/contact-us', [ContactController::class, 'index']);
+Route::get('/student', [StudentsController::class, 'index']);
 
 // Route::get('/login', [LoginController::class, 'index']);
 
